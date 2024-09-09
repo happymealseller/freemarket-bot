@@ -1,17 +1,9 @@
-export const onStart = {
+export const startMenu = {
   reply_markup: {
     inline_keyboard: [
       [
         {
-          text: "Buy!",
-          callback_data: "buy",
-        },
-        {
-          text: "Sell!",
-          callback_data: "sell",
-        },
-        {
-          text: "Manage!",
+          text: "Manage Listings",
           callback_data: "manage",
         },
       ],
@@ -19,7 +11,24 @@ export const onStart = {
   },
 };
 
-export const testKB = {
+export const imageMenu = {
+  reply_markup: {
+    inline_keyboard: [
+      [
+        {
+          text: "Buy",
+          callback_data: "user_buy",
+        },
+        {
+          text: "Sell",
+          callback_data: "user_sell",
+        },
+      ],
+    ],
+  },
+};
+
+export const mainMenu = {
   reply_keyboard_markup: {
     keyboard: [
       [
@@ -28,7 +37,6 @@ export const testKB = {
         },
         {
           text: "Price Match",
-          callback_data: "sell",
         },
         {
           text: "Manage!",

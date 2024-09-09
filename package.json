@@ -1,7 +1,7 @@
 {
   "name": "freemarket-sv",
   "scripts": {
-    "dev": "tsx watch src/bot.ts"
+    "dev": "tsx watch src/app.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.12.2",
@@ -11,7 +11,8 @@
     "hono": "^4.5.11",
     "ioredis": "^5.4.1",
     "openai": "^4.57.1",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "tsconfig-paths": "^4.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.17",

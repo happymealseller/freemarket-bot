@@ -13,7 +13,7 @@ const botHandleCallback = () => {
 
       try {
         const imageBuffer: Buffer | null = await redisClient.getBuffer(
-          `image_${userId}`
+          `itemImage_${userId}`
         );
 
         if (imageBuffer) {

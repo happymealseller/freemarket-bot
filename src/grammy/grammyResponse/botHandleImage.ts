@@ -19,12 +19,21 @@ const botHandleImage = () => {
 
       if (imageBuffer) {
         const imageRedisKey = `itemImage_${userId}`;
-        await redisClient.set(
-          imageRedisKey,
-          imageBuffer,
-          "EX",
-          redisCacheExpiration
-        );
+        const imageUrlRedisKey = `itemImageUrl_${userId}`;
+        await Promise.all([
+          redisClient.set(
+            imageRedisKey,
+            imageBuffer,
+            "EX",
+            redisCacheExpiration
+          ),
+          redisClient.set(
+            imageUrlRedisKey,
+            imageUrl,
+            "EX",
+            redisCacheExpiration
+          ),
+        ]);
       } else {
         await ctx.reply(
           "Error retrieving image, please send me another image!"
@@ -54,9 +63,7 @@ const botHandleImage = () => {
           "Error generating AI response, please send me another image!"
         );
       }
-
-      //TODO: replace image reply with web url
-      await ctx.reply("*link to edit listing page", imageMenu);
+      await ctx.reply("What would you like to do today?", imageMenu);
     } catch (err) {
       console.error("An error occurred:", err);
     }
